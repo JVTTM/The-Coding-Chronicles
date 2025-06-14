@@ -1,0 +1,60 @@
+def income_calculator():
+    try:
+        gross_income = float(input("Please enter your yearly gross income: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid number for your yearly gross income.")
+        return None
+    if gross_income < 0:
+        print("Please enter a valid positive number")
+        return None
+
+    if 1<=gross_income<=237100:
+        taxed_income = (18/100 * gross_income)
+        print("You are charged: 18% of taxable income.")
+
+    elif 237101<=gross_income<=370500:
+        taxed_income = (26/100 * (gross_income-237100)) + 42678
+        print("You are charged: 42 678 + 26% of taxable income above 237 100")
+
+    elif 370501<=gross_income<=512800:
+        taxed_income = (31 / 100 * (gross_income-370500)) +77362
+        print("You are charged: 77 362 + 31% of taxable income above 370 500")
+
+    elif 512801<=gross_income<=673000:
+        taxed_income = (36 / 100 * (gross_income-512800)) + 121475
+        print("You are charged: 121 475 + 36% of taxable income above 512 800")
+
+    elif 673001<=gross_income <=857900:
+        taxed_income = (39 / 100 * (gross_income-673000)) + 179147
+        print("You are charged: 179 147 + 39% of taxable income above 673 000")
+
+    elif 857901<=gross_income<= 1817000:
+        taxed_income = (41 / 100 * (gross_income-857900)) +251258
+        print("You are charged: 251 258 + 41% of taxable income above 857 900")
+
+    elif 1817001<=gross_income:
+        taxed_income = (45 / 100 * (gross_income-1817000)) + 644489
+        print("You are charged: 644 489 + 45% of taxable income above 1 817 000")
+
+    else:
+        print("Gross income does not fall under any tax bracket")
+        return None
+
+    net_income = gross_income-taxed_income
+
+    monthly_income = net_income/12
+    weekly_income = net_income / 52
+    daily_income = net_income / 365
+    hourly_income = daily_income / 8
+
+    print("____________Income Calculation Results____________")
+    print(f"Your Yearly gross income: R{gross_income:,.2f}")
+    print(f"Tax Charged: R{taxed_income:,.2f}")
+    print(f"Amount remaining after tax: {net_income:,.2f}")
+    print(f"Monthly income: R{monthly_income:,.2f}")
+    print(f"Weekly income: R{weekly_income:,.2f}")
+    print(f"Daily income: R{daily_income:,.2f}")
+    print(f"Hourly income: R{hourly_income:,.2f}")
+    print("__________________________________________________")
+
+income_calculator()
