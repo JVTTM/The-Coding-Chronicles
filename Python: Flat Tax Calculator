@@ -1,0 +1,36 @@
+def income_calculator():
+    tax_rate=float(input("Please enter the current tax rate(%): "))
+    if tax_rate<0:
+        print("Please enter a valid number")
+        return None
+    gross_income = float(input("Please enter your yearly gross income: "))
+    if gross_income<0:
+        print("Please enter a valid number")
+        return None
+
+    taxed_salary = tax_rate/100 * gross_income
+
+    net_income = gross_income-taxed_salary
+
+    monthly_income = net_income / 12
+    weekly_income = net_income / 52
+    daily_income = net_income / 365
+    hourly_income = daily_income / 8
+
+    print("____________Income Calculation Results____________")
+    print(f"Your Yearly gross income: R{gross_income:,.2f}")
+    print(f"Tax Charged: {taxed_salary:,.2f}")
+    print(f"Amount remaining after tax: {net_income:,.2f}")
+    print(f"Monthly income: {monthly_income:,.2f}")
+    print(f"Weekly income: {weekly_income:,.2f}")
+    print(f"Daily income: {daily_income:,.2f}")
+    print(f"Hourly income: {hourly_income:,.2f}")
+    print("__________________________________________________")
+
+try:
+    income_calculator()
+except ValueError:
+    print("Please enter a valid number")
+
+except Exception as e:
+    print(f"An unexpected error has occurred :{e}")
