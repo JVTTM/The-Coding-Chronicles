@@ -1,0 +1,24 @@
+from random import randint
+
+print("===============Guessing Game===============")
+print("You can only guess once per play then the number changes :)")
+
+while True:
+    answer = randint(1, 100)
+    guess = int(input("Guess a number between 1 and 100: "))
+    if guess==answer:
+        print("You are correct")
+        retry=input("Would you like to play again(Y/N): ").lower()
+        if retry=="y":
+            continue
+        else:
+            print("Thank you for playing :)")
+            break
+    else:
+        print(f"Incorrect guess. The correct guess is {answer}")
+        retry=input("Would you like to play again(Y/N): ").lower()
+        if retry=="y":
+            continue
+        else:
+            print("Thank you for playing :).")
+            break
